@@ -1,6 +1,6 @@
 module pe #(
-	parameter DATA_WIDTH = 9,
-	parameter ACC_WIDTH = 17
+	parameter DATA_WIDTH = 16,
+	parameter ACC_WIDTH = 64
 	) (    
 	input logic clk,
     input logic rstn,

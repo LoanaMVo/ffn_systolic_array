@@ -28,17 +28,16 @@ class alignas(VL_CACHE_LINE_BYTES) Vsystolic_array VL_NOT_FINAL : public Verilat
     VL_IN8(&clk,0,0);
     VL_IN8(&rstn,0,0);
     VL_IN8(&acc_en,0,0);
-    VL_OUT8(&done_o,0,0);
-    VL_IN(&data_a_0_i,16,0);
-    VL_IN(&data_a_1_i,16,0);
-    VL_IN(&data_b_0_i,16,0);
-    VL_IN(&data_b_1_i,16,0);
-    VL_OUTW(&acc_0_o,68,0,3);
-    VL_OUTW(&acc_1_o,68,0,3);
-    VL_OUTW(&acc_2_o,68,0,3);
-    VL_OUTW(&acc_3_o,68,0,3);
-    VL_OUT64(&pe_a_o,33,0);
-    VL_OUT64(&pe_b_o,33,0);
+    VL_IN16(&data_a_0_i,15,0);
+    VL_IN16(&data_a_1_i,15,0);
+    VL_IN16(&data_b_0_i,15,0);
+    VL_IN16(&data_b_1_i,15,0);
+    VL_OUT(&pe_a_o,31,0);
+    VL_OUT(&pe_b_o,31,0);
+    VL_OUT64(&acc_0_o,63,0);
+    VL_OUT64(&acc_1_o,63,0);
+    VL_OUT64(&acc_2_o,63,0);
+    VL_OUT64(&acc_3_o,63,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.

@@ -1,14 +1,20 @@
 /* 
  * SYSTOLIC ARRAY
- * ---------------------------------------------
- * 
  * Author: Loana Vo
+ * Data: Febuary 2024
+ * ---------------------------------------------
+ *	pe0	pe2 
+ *  pe2 pe3
+ *  Notes:
+ *  - systolic array takes in 32 bit signed input. 
+ *  - fixed point prescision.
+ *  - performs clocked matrix multiplication.
  */
 
 module systolic_array #(
 	//PE_SIZE = 4,
-	DATA_WIDTH = 16+1,
-	ACC_WIDTH = DATA_WIDTH*4+1
+	DATA_WIDTH = 16,
+	ACC_WIDTH = 64
 	)(
 	input logic clk,
 	input logic rstn,
@@ -24,45 +30,36 @@ module systolic_array #(
 	output logic signed [ACC_WIDTH-1:0] acc_1_o,
 	output logic signed [ACC_WIDTH-1:0] acc_2_o,
 	output logic signed [ACC_WIDTH-1:0] acc_3_o,
-	output logic [DATA_WIDTH*2-1:0] pe_a_o,
-	output logic [DATA_WIDTH*2-1:0] pe_b_o,
-	// done
-	output logic done_o
+	output logic signed [DATA_WIDTH*2-1:0] pe_a_o,
+	output logic signed [DATA_WIDTH*2-1:0] pe_b_o
 	);
 
-	reg done_r; // asserts when computation is done
-	reg cnt_r; // counter to measure how many clock cycles has passed
-
 	// accumulator output	
-	reg [ACC_WIDTH-1:0] acc_0_r;
-	reg [ACC_WIDTH-1:0] acc_1_r; 
-	reg [ACC_WIDTH-1:0] acc_2_r; 
-	reg [ACC_WIDTH-1:0] acc_3_r; 
+	logic signed [ACC_WIDTH-1:0] acc_0_r;
+	logic signed [ACC_WIDTH-1:0] acc_1_r; 
+	logic signed [ACC_WIDTH-1:0] acc_2_r; 
+	logic signed [ACC_WIDTH-1:0] acc_3_r; 
 
-    /*
-		pe0 -> pe1
-	      |	     |
-		pe2 -> pe_3 
-	*/
+	//process element outputs
+	logic signed [DATA_WIDTH-1:0] data_a_pe0;
+	logic signed [DATA_WIDTH-1:0] data_a_pe1;
+	logic signed [DATA_WIDTH-1:0] data_a_pe2;
+	logic signed [DATA_WIDTH-1:0] data_a_pe3;
 
-	logic [DATA_WIDTH-1:0] pe0_a_o;
-	logic [DATA_WIDTH-1:0] pe1_a_o;
-	logic [DATA_WIDTH-1:0] pe2_a_o;
-	logic [DATA_WIDTH-1:0] pe3_a_o;
+	logic signed [DATA_WIDTH-1:0] data_b_pe0;
+	logic signed [DATA_WIDTH-1:0] data_b_pe1;
+	logic signed [DATA_WIDTH-1:0] data_b_pe2;
+	logic signed [DATA_WIDTH-1:0] data_b_pe3;
 
-	logic [DATA_WIDTH-1:0] pe0_b_o;
-	logic [DATA_WIDTH-1:0] pe1_b_o;
-	logic [DATA_WIDTH-1:0] pe2_b_o;
-	logic [DATA_WIDTH-1:0] pe3_b_o;
-
+	// process element arrangment
 	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_0 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
 		.data_a_i(data_a_0_i),
 		.data_b_i(data_b_0_i),
-		.data_a_o(pe0_a_o),
-		.data_b_o(pe0_b_o),
+		.data_a_o(data_a_pe0),
+		.data_b_o(data_b_pe0),
 		.acc_o(acc_0_r)
 	);
 	
@@ -70,10 +67,10 @@ module systolic_array #(
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
-		.data_a_i(pe0_a_o),
+		.data_a_i(data_a_pe0),
 		.data_b_i(data_b_1_i),
-		.data_a_o(pe1_a_o),
-		.data_b_o(pe1_b_o),
+		.data_a_o(data_a_pe1),
+		.data_b_o(data_b_pe1),
 		.acc_o(acc_1_r)
 	);
 	
@@ -82,9 +79,9 @@ module systolic_array #(
 		.rstn(rstn),
 		.acc_en(acc_en),
 		.data_a_i(data_a_1_i),
-		.data_b_i(pe0_b_o),
-		.data_a_o(pe2_a_o),
-		.data_b_o(pe2_b_o),
+		.data_b_i(data_b_pe0),
+		.data_a_o(data_a_pe2),
+		.data_b_o(data_b_pe2),
 		.acc_o(acc_2_r)
 	);
 	
@@ -92,19 +89,16 @@ module systolic_array #(
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
-		.data_a_i(pe2_a_o),
-		.data_b_i(pe1_b_o),
-		.data_a_o(pe3_a_o),
-		.data_b_o(pe3_b_o),
+		.data_a_i(data_a_pe2),
+		.data_b_i(data_b_pe1),
+		.data_a_o(data_a_pe3),
+		.data_b_o(data_b_pe3),
 		.acc_o(acc_3_r)
 	);
-	// done loop
+	
 	always @(posedge clk, negedge rstn) begin
 		if(!rstn) begin
-			done_r <= 1'b0;	
-			cnt_r  <= 1'b0;
-		end else begin
-			cnt_r <= cnt_r + 1;
+
 		end
 	end
 
@@ -112,11 +106,8 @@ module systolic_array #(
 	assign acc_1_o = acc_1_r;
 	assign acc_2_o = acc_2_r;
 	assign acc_3_o = acc_3_r;
-	// assign acc_o = {acc_0_r,acc_1_r,acc_2_r,acc_3_r};
-
-	assign done_o = done_r;
 
 	// data_o
-	assign pe_a_o = {pe1_a_o,pe3_a_o};
-	assign pe_b_o = {pe2_b_o,pe3_b_o};
+	assign pe_a_o = {data_a_pe1,data_a_pe3};
+	assign pe_b_o = {data_b_pe2,data_b_pe3};
 endmodule // systolic_array

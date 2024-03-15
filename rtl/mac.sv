@@ -8,8 +8,8 @@
  */
 
 module mac #(
-	parameter DATA_WIDTH = 9,
-	parameter ACC_WIDTH = 17
+	parameter DATA_WIDTH = 16,
+	parameter ACC_WIDTH = 64
 	) (    
 	input logic clk,
     input logic rstn,
@@ -25,23 +25,29 @@ module mac #(
 	output signed [ACC_WIDTH  - 1:0] acc_o
     );
 
-	logic signed [ACC_WIDTH    - 1:0] acc_r;
-	logic signed [ACC_WIDTH    - 1:0] acc_prev;
+	reg   signed [ACC_WIDTH - 1:0] acc_r;
+	logic signed [ACC_WIDTH - 1:0] acc_prev;
 
-	assign acc_prev = acc_r; 
+	reg signed [DATA_WIDTH-1:0] data_a_r;
+	reg signed [DATA_WIDTH-1:0] data_b_r;
 
+assign acc_prev = acc_r;
 	always @(posedge clk, negedge rstn) begin
 		if(!rstn) begin
-			acc_r  <= 0;
+			acc_r    <=  0;
+			data_a_r <= '0;
+			data_b_r <= '0;
 		end else begin
 			if (acc_en) begin
-				acc_r  <= acc_prev + data_a_i * data_b_i;
+				acc_r    <= acc_prev + data_a_i * data_b_i;
+				data_a_r <= data_a_i;
+				data_b_r <= data_b_i;
 			end
 		end
 	end
 	 
-	assign data_a_o = data_a_i;
-	assign data_b_o = data_b_i;
 	assign acc_o = acc_r;
+	assign data_a_o = data_a_r;
+	assign data_b_o = data_b_r;
 
 endmodule // mac

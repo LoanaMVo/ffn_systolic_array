@@ -13,17 +13,16 @@ Vsystolic_array::Vsystolic_array(VerilatedContext* _vcontextp__, const char* _vc
     , clk{vlSymsp->TOP.clk}
     , rstn{vlSymsp->TOP.rstn}
     , acc_en{vlSymsp->TOP.acc_en}
-    , done_o{vlSymsp->TOP.done_o}
     , data_a_0_i{vlSymsp->TOP.data_a_0_i}
     , data_a_1_i{vlSymsp->TOP.data_a_1_i}
     , data_b_0_i{vlSymsp->TOP.data_b_0_i}
     , data_b_1_i{vlSymsp->TOP.data_b_1_i}
+    , pe_a_o{vlSymsp->TOP.pe_a_o}
+    , pe_b_o{vlSymsp->TOP.pe_b_o}
     , acc_0_o{vlSymsp->TOP.acc_0_o}
     , acc_1_o{vlSymsp->TOP.acc_1_o}
     , acc_2_o{vlSymsp->TOP.acc_2_o}
     , acc_3_o{vlSymsp->TOP.acc_3_o}
-    , pe_a_o{vlSymsp->TOP.pe_a_o}
-    , pe_b_o{vlSymsp->TOP.pe_b_o}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context
