@@ -20,59 +20,359 @@ VL_INLINE_OPT void Vsystolic_array___024root___nba_sequent__TOP__0(Vsystolic_arr
         if (vlSelf->acc_en) {
             vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__acc_r 
                 = (vlSelf->acc_0_o + VL_MULS_QQQ(64, 
-                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_a_0_i)), 
-                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_b_0_i))));
+                                                 VL_MULS_QQQ(64, 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_a_0_i)), 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_b_0_i))), 
+                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_4_o + VL_MULS_QQQ(64, 
+                                                 VL_MULS_QQQ(64, 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_a_1_i)), 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_b_r))), 
+                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_1_o + VL_MULS_QQQ(64, 
+                                                 VL_MULS_QQQ(64, 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_a_r)), 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_b_1_i))), 
+                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_8_o + VL_MULS_QQQ(64, 
+                                                 VL_MULS_QQQ(64, 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_a_2_i)), 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_b_r))), 
+                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_5_o + VL_MULS_QQQ(64, 
+                                                 VL_MULS_QQQ(64, 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_a_r)), 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_b_r))), 
+                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_2_o + VL_MULS_QQQ(64, 
+                                                 VL_MULS_QQQ(64, 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_a_r)), 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_b_2_i))), 
+                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_12_o + VL_MULS_QQQ(64, 
+                                                  VL_MULS_QQQ(64, 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_a_3_i)), 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_b_r))), 
+                                                  VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_9_o + VL_MULS_QQQ(64, 
+                                                 VL_MULS_QQQ(64, 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_a_r)), 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__data_b_r))), 
+                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_6_o + VL_MULS_QQQ(64, 
+                                                 VL_MULS_QQQ(64, 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__data_a_r)), 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_b_r))), 
+                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_3_o + VL_MULS_QQQ(64, 
+                                                 VL_MULS_QQQ(64, 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_a_r)), 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_b_3_i))), 
+                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_15__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__data_b_r;
+            vlSelf->systolic_array__DOT__pe_15__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__data_a_r;
+            vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_b_r;
+            vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__data_b_r;
+            vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_b_r;
+            vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_a_r;
+            vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_a_r;
             vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_a_r 
                 = vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_a_r;
-            vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_b_r 
-                = vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_b_r;
-            vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_b_r 
+            vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_13_o + VL_MULS_QQQ(64, 
+                                                  VL_MULS_QQQ(64, 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__data_a_r)), 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__data_b_r))), 
+                                                  VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_10_o + VL_MULS_QQQ(64, 
+                                                  VL_MULS_QQQ(64, 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__data_a_r)), 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_b_r))), 
+                                                  VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_7_o + VL_MULS_QQQ(64, 
+                                                 VL_MULS_QQQ(64, 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_a_r)), 
+                                                             VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_b_r))), 
+                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_14_o + VL_MULS_QQQ(64, 
+                                                  VL_MULS_QQQ(64, 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__data_a_r)), 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_b_r))), 
+                                                  VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_11_o + VL_MULS_QQQ(64, 
+                                                  VL_MULS_QQQ(64, 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_a_r)), 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__data_b_r))), 
+                                                  VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_15__DOT__mac_inst__DOT__acc_r 
+                = (vlSelf->acc_15_o + VL_MULS_QQQ(64, 
+                                                  VL_MULS_QQQ(64, 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__data_a_r)), 
+                                                              VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__data_b_r))), 
+                                                  VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_15__DOT__mac_inst__DOT__weight))));
+            vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_b_r;
+            vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_a_r;
+            vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__data_b_r;
+            vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__data_a_r;
+            vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_b_r;
+            vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__data_a_r;
+            vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__data_a_r;
+            vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__data_b_r;
+            vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_b_r 
                 = vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_b_r;
             vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_a_r 
                 = vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_a_r;
-            vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__acc_r 
-                = (vlSelf->acc_2_o + VL_MULS_QQQ(64, 
-                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_a_1_i)), 
-                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_b_r))));
-            vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__acc_r 
-                = (vlSelf->acc_1_o + VL_MULS_QQQ(64, 
-                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_a_r)), 
-                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->data_b_1_i))));
-            vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__acc_r 
-                = (vlSelf->acc_3_o + VL_MULS_QQQ(64, 
-                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_a_r)), 
-                                                 VL_EXTENDS_QI(64,16, (IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_b_r))));
+            vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_b_r;
+            vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_a_r;
+            vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_b_r;
+            vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_a_r;
+            vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__data_a_r;
+            vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_b_r;
             vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_b_r 
                 = vlSelf->data_b_0_i;
             vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_a_r 
                 = vlSelf->data_a_0_i;
-            vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_a_r 
-                = vlSelf->data_a_1_i;
             vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_b_r 
                 = vlSelf->data_b_1_i;
+            vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->data_a_1_i;
+            vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->data_b_2_i;
+            vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->data_a_2_i;
+            vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__data_a_r 
+                = vlSelf->data_a_3_i;
+            vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_b_r 
+                = vlSelf->data_b_3_i;
         }
     } else {
         vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__acc_r = 0ULL;
-        vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_a_r = 0U;
-        vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_b_r = 0U;
-        vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_b_r = 0U;
-        vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_a_r = 0U;
-        vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__acc_r = 0ULL;
         vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__acc_r = 0ULL;
         vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_15__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_15__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_15__DOT__mac_inst__DOT__acc_r = 0ULL;
+        vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__data_b_r = 0U;
         vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_b_r = 0U;
         vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_a_r = 0U;
-        vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_a_r = 0U;
         vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_b_r = 0U;
+        vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__data_a_r = 0U;
+        vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_b_r = 0U;
     }
     vlSelf->acc_0_o = vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__acc_r;
-    vlSelf->pe_b_o = (((IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_b_r) 
-                       << 0x10U) | (IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_b_r));
-    vlSelf->pe_a_o = (((IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_a_r) 
-                       << 0x10U) | (IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_a_r));
-    vlSelf->acc_2_o = vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_4_o = vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__acc_r;
     vlSelf->acc_1_o = vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_8_o = vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_5_o = vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_2_o = vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_12_o = vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_9_o = vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_6_o = vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__acc_r;
     vlSelf->acc_3_o = vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_13_o = vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_10_o = vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_7_o = vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_14_o = vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_11_o = vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__acc_r;
+    vlSelf->acc_15_o = vlSelf->systolic_array__DOT__pe_15__DOT__mac_inst__DOT__acc_r;
+    vlSelf->data_a_o[0U] = (((IData)(vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__data_a_r) 
+                             << 0x10U) | (IData)(vlSelf->systolic_array__DOT__pe_15__DOT__mac_inst__DOT__data_a_r));
+    vlSelf->data_a_o[1U] = (((0xffffU & (IData)(vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__data_a_r)) 
+                             | ((IData)(vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__data_a_r) 
+                                >> 0x10U)) | ((IData)(vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__data_a_r) 
+                                              << 0x10U));
+    vlSelf->data_a_o[2U] = (((0xffffU & (IData)(vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__data_a_r)) 
+                             | ((IData)(vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__data_a_r) 
+                                >> 0x10U)) | ((IData)(vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_a_r) 
+                                              << 0x10U));
+    vlSelf->data_a_o[3U] = (((0xffffU & (IData)(vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__data_a_r)) 
+                             | ((IData)(vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_a_r) 
+                                >> 0x10U)) | ((IData)(vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_a_r) 
+                                              << 0x10U));
+    vlSelf->data_a_o[4U] = (((0xffffU & (IData)(vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__data_a_r)) 
+                             | ((IData)(vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_a_r) 
+                                >> 0x10U)) | ((IData)(vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_a_r) 
+                                              << 0x10U));
+    vlSelf->data_a_o[5U] = (((0xffffU & (IData)(vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__data_a_r)) 
+                             | ((IData)(vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_a_r) 
+                                >> 0x10U)) | ((IData)(
+                                                      (((QData)((IData)(
+                                                                        (((IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_a_r) 
+                                                                          << 0x10U) 
+                                                                         | (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_a_r)))) 
+                                                        << 0x20U) 
+                                                       | (QData)((IData)(
+                                                                         (((IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_a_r) 
+                                                                           << 0x10U) 
+                                                                          | (IData)(vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_a_r)))))) 
+                                              << 0x10U));
+    vlSelf->data_a_o[6U] = (((IData)((((QData)((IData)(
+                                                       (((IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_a_r) 
+                                                         << 0x10U) 
+                                                        | (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_a_r)))) 
+                                       << 0x20U) | (QData)((IData)(
+                                                                   (((IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_a_r) 
+                                                                     << 0x10U) 
+                                                                    | (IData)(vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_a_r)))))) 
+                             >> 0x10U) | ((IData)((
+                                                   (((QData)((IData)(
+                                                                     (((IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_a_r) 
+                                                                       << 0x10U) 
+                                                                      | (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_a_r)))) 
+                                                     << 0x20U) 
+                                                    | (QData)((IData)(
+                                                                      (((IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_a_r) 
+                                                                        << 0x10U) 
+                                                                       | (IData)(vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_a_r))))) 
+                                                   >> 0x20U)) 
+                                          << 0x10U));
+    vlSelf->data_a_o[7U] = (((IData)(vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_a_r) 
+                             << 0x10U) | ((IData)((
+                                                   (((QData)((IData)(
+                                                                     (((IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_a_r) 
+                                                                       << 0x10U) 
+                                                                      | (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_a_r)))) 
+                                                     << 0x20U) 
+                                                    | (QData)((IData)(
+                                                                      (((IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_a_r) 
+                                                                        << 0x10U) 
+                                                                       | (IData)(vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_a_r))))) 
+                                                   >> 0x20U)) 
+                                          >> 0x10U));
+    vlSelf->data_b_o[0U] = (((IData)(vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__data_b_r) 
+                             << 0x10U) | (IData)(vlSelf->systolic_array__DOT__pe_15__DOT__mac_inst__DOT__data_b_r));
+    vlSelf->data_b_o[1U] = (((0xffffU & (IData)(vlSelf->systolic_array__DOT__pe_13__DOT__mac_inst__DOT__data_b_r)) 
+                             | ((IData)(vlSelf->systolic_array__DOT__pe_14__DOT__mac_inst__DOT__data_b_r) 
+                                >> 0x10U)) | ((IData)(vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__data_b_r) 
+                                              << 0x10U));
+    vlSelf->data_b_o[2U] = (((0xffffU & (IData)(vlSelf->systolic_array__DOT__pe_11__DOT__mac_inst__DOT__data_b_r)) 
+                             | ((IData)(vlSelf->systolic_array__DOT__pe_12__DOT__mac_inst__DOT__data_b_r) 
+                                >> 0x10U)) | ((IData)(vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_b_r) 
+                                              << 0x10U));
+    vlSelf->data_b_o[3U] = (((0xffffU & (IData)(vlSelf->systolic_array__DOT__pe_9__DOT__mac_inst__DOT__data_b_r)) 
+                             | ((IData)(vlSelf->systolic_array__DOT__pe_10__DOT__mac_inst__DOT__data_b_r) 
+                                >> 0x10U)) | ((IData)(vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_b_r) 
+                                              << 0x10U));
+    vlSelf->data_b_o[4U] = (((0xffffU & (IData)(vlSelf->systolic_array__DOT__pe_7__DOT__mac_inst__DOT__data_b_r)) 
+                             | ((IData)(vlSelf->systolic_array__DOT__pe_8__DOT__mac_inst__DOT__data_b_r) 
+                                >> 0x10U)) | ((IData)(vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_b_r) 
+                                              << 0x10U));
+    vlSelf->data_b_o[5U] = (((0xffffU & (IData)(vlSelf->systolic_array__DOT__pe_5__DOT__mac_inst__DOT__data_b_r)) 
+                             | ((IData)(vlSelf->systolic_array__DOT__pe_6__DOT__mac_inst__DOT__data_b_r) 
+                                >> 0x10U)) | ((IData)(
+                                                      (((QData)((IData)(
+                                                                        (((IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_b_r) 
+                                                                          << 0x10U) 
+                                                                         | (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_b_r)))) 
+                                                        << 0x20U) 
+                                                       | (QData)((IData)(
+                                                                         (((IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_b_r) 
+                                                                           << 0x10U) 
+                                                                          | (IData)(vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_b_r)))))) 
+                                              << 0x10U));
+    vlSelf->data_b_o[6U] = (((IData)((((QData)((IData)(
+                                                       (((IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_b_r) 
+                                                         << 0x10U) 
+                                                        | (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_b_r)))) 
+                                       << 0x20U) | (QData)((IData)(
+                                                                   (((IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_b_r) 
+                                                                     << 0x10U) 
+                                                                    | (IData)(vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_b_r)))))) 
+                             >> 0x10U) | ((IData)((
+                                                   (((QData)((IData)(
+                                                                     (((IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_b_r) 
+                                                                       << 0x10U) 
+                                                                      | (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_b_r)))) 
+                                                     << 0x20U) 
+                                                    | (QData)((IData)(
+                                                                      (((IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_b_r) 
+                                                                        << 0x10U) 
+                                                                       | (IData)(vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_b_r))))) 
+                                                   >> 0x20U)) 
+                                          << 0x10U));
+    vlSelf->data_b_o[7U] = (((IData)(vlSelf->systolic_array__DOT__pe_0__DOT__mac_inst__DOT__data_b_r) 
+                             << 0x10U) | ((IData)((
+                                                   (((QData)((IData)(
+                                                                     (((IData)(vlSelf->systolic_array__DOT__pe_1__DOT__mac_inst__DOT__data_b_r) 
+                                                                       << 0x10U) 
+                                                                      | (IData)(vlSelf->systolic_array__DOT__pe_2__DOT__mac_inst__DOT__data_b_r)))) 
+                                                     << 0x20U) 
+                                                    | (QData)((IData)(
+                                                                      (((IData)(vlSelf->systolic_array__DOT__pe_3__DOT__mac_inst__DOT__data_b_r) 
+                                                                        << 0x10U) 
+                                                                       | (IData)(vlSelf->systolic_array__DOT__pe_4__DOT__mac_inst__DOT__data_b_r))))) 
+                                                   >> 0x20U)) 
+                                          >> 0x10U));
 }
 
 void Vsystolic_array___024root___eval_nba(Vsystolic_array___024root* vlSelf) {
@@ -82,7 +382,6 @@ void Vsystolic_array___024root___eval_nba(Vsystolic_array___024root* vlSelf) {
     // Body
     if ((1ULL & vlSelf->__VnbaTriggered.word(0U))) {
         Vsystolic_array___024root___nba_sequent__TOP__0(vlSelf);
-        vlSelf->__Vm_traceActivity[1U] = 1U;
     }
 }
 
@@ -143,7 +442,7 @@ void Vsystolic_array___024root___eval(Vsystolic_array___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vsystolic_array___024root___dump_triggers__nba(vlSelf);
 #endif
-            VL_FATAL_MT("../rtl/systolic_array.sv", 14, "", "NBA region did not converge.");
+            VL_FATAL_MT("../rtl/../rtl/systolic_array.sv", 17, "", "NBA region did not converge.");
         }
         __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
         __VnbaContinue = 0U;
@@ -154,7 +453,7 @@ void Vsystolic_array___024root___eval(Vsystolic_array___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vsystolic_array___024root___dump_triggers__act(vlSelf);
 #endif
-                VL_FATAL_MT("../rtl/systolic_array.sv", 14, "", "Active region did not converge.");
+                VL_FATAL_MT("../rtl/../rtl/systolic_array.sv", 17, "", "Active region did not converge.");
             }
             vlSelf->__VactIterCount = ((IData)(1U) 
                                        + vlSelf->__VactIterCount);

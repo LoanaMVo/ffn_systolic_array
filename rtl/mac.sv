@@ -9,7 +9,8 @@
 
 module mac #(
 	parameter DATA_WIDTH = 16,
-	parameter ACC_WIDTH = 64
+	parameter ACC_WIDTH = 64,
+	parameter WEIGHT_WIDTH = 16
 	) (    
 	input logic clk,
     input logic rstn,
@@ -18,6 +19,7 @@ module mac #(
 	// data a and b inputs
     input logic signed  [DATA_WIDTH - 1:0] data_a_i,
 	input logic signed  [DATA_WIDTH - 1:0] data_b_i,
+	input logic signed  [DATA_WIDTH - 1:0] weight_i,
 	// data a and b outputs
 	output logic signed [DATA_WIDTH - 1:0] data_a_o,
     output logic signed [DATA_WIDTH - 1:0] data_b_o,
@@ -30,7 +32,7 @@ module mac #(
 
 	reg signed [DATA_WIDTH-1:0] data_a_r;
 	reg signed [DATA_WIDTH-1:0] data_b_r;
-
+ 
 assign acc_prev = acc_r;
 	always @(posedge clk, negedge rstn) begin
 		if(!rstn) begin
@@ -39,7 +41,7 @@ assign acc_prev = acc_r;
 			data_b_r <= '0;
 		end else begin
 			if (acc_en) begin
-				acc_r    <= acc_prev + data_a_i * data_b_i;
+				acc_r    <= acc_prev + data_a_i * data_b_i * weight_i;
 				data_a_r <= data_a_i;
 				data_b_r <= data_b_i;
 			end

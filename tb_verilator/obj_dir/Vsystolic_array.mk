@@ -4,7 +4,7 @@
 # Execute this makefile from the object directory:
 #    make -f Vsystolic_array.mk
 
-default: Vsystolic_array
+default: libVsystolic_array
 
 ### Constants...
 # Perl executable (from $PERL)
@@ -41,11 +41,9 @@ VM_USER_LDLIBS = \
 
 # User .cpp files (from .cpp's on Verilator command line)
 VM_USER_CLASSES = \
-	tb_systolic_array \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
-	. \
 
 
 ### Default rules...
@@ -54,15 +52,9 @@ include Vsystolic_array_classes.mk
 # Include global rules
 include $(VERILATOR_ROOT)/include/verilated.mk
 
-### Executable rules... (from --exe)
-VPATH += $(VM_USER_DIR)
-
-tb_systolic_array.o: tb_systolic_array.cpp
-	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-
-### Link rules... (from --exe)
-Vsystolic_array: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)
-	$(LINK) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) $(LIBS) $(SC_LIBS) -o $@
-
+### Library rules (default lib mode)
+libVsystolic_array.a: $(VK_OBJS) $(VK_USER_OBJS) $(VM_HIER_LIBS)
+libverilated.a: $(VK_GLOBAL_OBJS)
+libVsystolic_array: libVsystolic_array.a libverilated.a $(VM_PREFIX)__ALL.a
 
 # Verilated -*- Makefile -*-

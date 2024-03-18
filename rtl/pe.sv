@@ -9,6 +9,7 @@ module pe #(
 	// data a and b inputs
     input logic signed  [DATA_WIDTH - 1:0] data_a_i,
 	input logic signed  [DATA_WIDTH - 1:0] data_b_i,
+	input logic signed  [DATA_WDITH - 1:0] weight_i,
 	// data a and b outputs
 	output logic signed [DATA_WIDTH - 1:0] data_a_o,
     output logic signed [DATA_WIDTH - 1:0] data_b_o,
@@ -22,6 +23,7 @@ module pe #(
 		.acc_en(acc_en),
 		.data_a_i(data_a_i),
 		.data_b_i(data_b_i),
+		.weight_i(weight_i),
 		.data_a_o(data_a_o),
 		.data_b_o(data_b_o),
 		.acc_o(acc_o)
