@@ -1,3 +1,10 @@
+/* PROCESS ELEMENT 
+ * Parameters:
+ * DATA_WIDTH - length of an n x n matrix
+ * ACC_WIDTH  - accumulator size, depends on matrix size and how many iterations
+ *		  	  - general rule should be n * datawidth * 2	
+ * Author: Loana Vo
+ */
 module pe #(
 	parameter DATA_WIDTH = 16,
 	parameter ACC_WIDTH = 64
@@ -9,14 +16,14 @@ module pe #(
 	// data a and b inputs
     input logic signed  [DATA_WIDTH - 1:0] data_a_i,
 	input logic signed  [DATA_WIDTH - 1:0] data_b_i,
-	input logic signed  [DATA_WDITH - 1:0] weight_i,
+	input logic signed  [DATA_WIDTH - 1:0] weight_i,
 	// data a and b outputs
 	output logic signed [DATA_WIDTH - 1:0] data_a_o,
     output logic signed [DATA_WIDTH - 1:0] data_b_o,
 	// output accumulator
-	output signed [ACC_WIDTH  - 1:0] acc_o
+	output signed 		[ACC_WIDTH  - 1:0] acc_o
     );
-
+	
 	mac #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) mac_inst (
 		.clk(clk),
 		.rstn(rstn),
