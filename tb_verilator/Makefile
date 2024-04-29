@@ -1,5 +1,3 @@
-TEST := SYS_ARRAY
-COMP := VERILATOR
 TOP := systolic_array
 
 test_sim:
@@ -9,6 +7,9 @@ test_sim:
 	./obj_dir/V$(TOP)
 	vcd2fst $(TOP)_test.vcd $(TOP)_test.fst
 	rm -rf *.vcd
+
+wave_gen:
+	vcd2fst $(TOP)_test.vcd $(TOP)_test.fst
 
 clean:
 	rm -rf *.fst
