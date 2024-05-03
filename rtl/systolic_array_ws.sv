@@ -1,4 +1,4 @@
-/* SYSTOLIC ARRAY
+/* SYSTOLIC ARRAY - WEIGHT STATIONARY
  * Author: Loana Vo
  * Data: Febuary 2024
  * ---------------------------------------------
@@ -13,7 +13,8 @@
  *  - performs clocked matrix multiplication.
  */
 
-module systolic_array #(
+/* verilator lint_off UNUSEDSIGNAL */
+module systolic_array_ws #(
 	DATA_WIDTH = 16,
 	ACC_WIDTH = 64,
 	PE_NUM = 16,
@@ -22,6 +23,7 @@ module systolic_array #(
 	)(
 	input logic clk,
 	input logic rstn,
+    input logic rstn_acc,
 	// accumulator enable
 	input  logic acc_en,
     // weight load enable
@@ -73,198 +75,236 @@ module systolic_array #(
 	logic signed [ACC_WIDTH-1:0] acc_res_pe14;
 	logic signed [ACC_WIDTH-1:0] acc_res_pe15;
 	// process element arrangment
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_0 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_0 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_0_i),
-        .acc_i(1'b0),
-		.weight_i(weight_i[WEIGHT_WIDTH*16-1-:DATA_WIDTH]),
+        .acc_i('0),
+		.weight_i(weight_i[DATA_WIDTH*1-1-:DATA_WIDTH]),
 		.data_o(data_pe0),
 		.acc_o(acc_res_pe0)
 	);
 	
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_1 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_1 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_1_i),
         .acc_i(acc_res_pe0),
-		.weight_i(weight_i[WEIGHT_WIDTH*15-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*2-1-:DATA_WIDTH]),
 		.data_o(data_pe1),
 		.acc_o(acc_res_pe1)
 	);
 	
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_2 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_2 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_2_i),
         .acc_i(acc_res_pe1),
-		.weight_i(weight_i[WEIGHT_WIDTH*14-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*3-1-:DATA_WIDTH]),
 		.data_o(data_pe2),
 		.acc_o(acc_res_pe2)
 	);
 	
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_3 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_3 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_3_i),
         .acc_i(acc_res_pe2),
-		.weight_i(weight_i[WEIGHT_WIDTH*13-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*4-1-:DATA_WIDTH]),
 		.data_o(data_pe3),
 		.acc_o(acc_res_pe3) 
 	);
 
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_4 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_4 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe0),
-        .acc_i(1'b0),
-		.weight_i(weight_i[WEIGHT_WIDTH*12-1-:DATA_WIDTH]),
+        .acc_i('0),
+		.weight_i(weight_i[DATA_WIDTH*5-1-:DATA_WIDTH]),
 		.data_o(data_pe4),
 		.acc_o(acc_res_pe4)
 	);
 
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_5 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_5 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe1),
         .acc_i(acc_res_pe4),
-		.weight_i(weight_i[WEIGHT_WIDTH*11-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*6-1-:DATA_WIDTH]),
 		.data_o(data_pe5),
 		.acc_o(acc_res_pe5)
 	);
 
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_6 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_6 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe2),
         .acc_i(acc_res_pe5),
-		.weight_i(weight_i[WEIGHT_WIDTH*10-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*7-1-:DATA_WIDTH]),
 		.data_o(data_pe6),
 		.acc_o(acc_res_pe6)
 	);
 
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_7 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_7 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe3),
         .acc_i(acc_res_pe6),
-		.weight_i(weight_i[WEIGHT_WIDTH*9-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*8-1-:DATA_WIDTH]),
 		.data_o(data_pe7),
 		.acc_o(acc_res_pe7)
 	);
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_8 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_8 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe4),
-        .acc_i(1'b0),
-		.weight_i(weight_i[WEIGHT_WIDTH*8-1-:DATA_WIDTH]),
+        .acc_i('0),
+		.weight_i(weight_i[DATA_WIDTH*9-1-:DATA_WIDTH]),
 		.data_o(data_pe8),
 		.acc_o(acc_res_pe8)
 	);
 	
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_9 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_9 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe5),
         .acc_i(acc_res_pe8),
-		.weight_i(weight_i[WEIGHT_WIDTH*7-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*10-1-:DATA_WIDTH]),
 		.data_o(data_pe9),
 		.acc_o(acc_res_pe9)
 	);
 	
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_10 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_10 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe6),
         .acc_i(acc_res_pe9),
-		.weight_i(weight_i[WEIGHT_WIDTH*6-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*11-1-:DATA_WIDTH]),
 		.data_o(data_pe10),
 		.acc_o(acc_res_pe10)
 	);
 	
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_11 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_11 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe7),
         .acc_i(acc_res_pe10),
-		.weight_i(weight_i[WEIGHT_WIDTH*5-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*12-1-:DATA_WIDTH]),
 		.data_o(data_pe11),
 		.acc_o(acc_res_pe11) 
 	);
 
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_12 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_12 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe8),
-        .acc_i(1'b0),
-		.weight_i(weight_i[WEIGHT_WIDTH*4-1-:DATA_WIDTH]),
+        .acc_i('0),
+		.weight_i(weight_i[DATA_WIDTH*13-1-:DATA_WIDTH]),
 		.data_o(data_pe12),
 		.acc_o(acc_res_pe12)
 	);
 
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_13 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_13 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe9),
         .acc_i(acc_res_pe12),
-		.weight_i(weight_i[WEIGHT_WIDTH*3-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*14-1-:DATA_WIDTH]),
 		.data_o(data_pe13),
 		.acc_o(acc_res_pe13)
 	);
 
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_14 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_14 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe10),
         .acc_i(acc_res_pe13),
-		.weight_i(weight_i[WEIGHT_WIDTH*2-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*15-1-:DATA_WIDTH]),
 		.data_o(data_pe14),
 		.acc_o(acc_res_pe14)
 	);
 
-	pe #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH), .WEIGHT_WIDTH(WEIGHT_WIDTH)) pe_15 (
+	pe_ws #(.DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) pe_15 (
 		.clk(clk),
 		.rstn(rstn),
 		.acc_en(acc_en),
         .load_en(load_en),
 		.data_i(data_pe11),
         .acc_i(acc_res_pe14),
-		.weight_i(weight_i[WEIGHT_WIDTH*1-1-:DATA_WIDTH]),
+		.weight_i(weight_i[DATA_WIDTH*16-1-:DATA_WIDTH]),
 		.data_o(data_pe15),
 		.acc_o(acc_res_pe15)
 	);
 
-    assign acc_o = {acc_res_pe3, acc_res_pe7, acc_res_pe11, acc_res_pe15};
+    logic signed [ACC_WIDTH-1:0] acc_res_0_int;
+    logic signed [ACC_WIDTH-1:0] acc_res_1_int;
+    logic signed [ACC_WIDTH-1:0] acc_res_2_int;
+    logic signed [ACC_WIDTH-1:0] acc_res_3_int;
+
+    // accumulate final result
+    acc_result acc_0_instn (
+        .clk(clk),
+	    .rstn(rstn_acc),
+	    .acc_en(acc_en),
+        .acc_i(acc_res_pe3),
+        .acc_o(acc_res_0_int)
+    );
+
+    acc_result acc_1_instn (
+        .clk(clk),
+	    .rstn(rstn_acc),
+	    .acc_en(acc_en),
+        .acc_i(acc_res_pe7),
+        .acc_o(acc_res_1_int)
+    );
+
+    acc_result acc_2_instn (
+        .clk(clk),
+	    .rstn(rstn_acc),
+	    .acc_en(acc_en),
+        .acc_i(acc_res_pe11),
+        .acc_o(acc_res_2_int)
+    );
+
+    acc_result acc_3_instn (
+        .clk(clk),
+	    .rstn(rstn_acc),
+	    .acc_en(acc_en),
+        .acc_i(acc_res_pe15),
+        .acc_o(acc_res_3_int)
+    );
+
+    assign acc_o = {acc_res_3_int, acc_res_2_int, acc_res_1_int, acc_res_0_int};
 
 endmodule // systolic_array 
 

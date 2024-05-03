@@ -6,8 +6,8 @@ module sigmoid #(
     parameter DATA_WIDTH = 16,
     parameter FRAC_BITS = 8
 )(
-    input logic signed  [DATA_WIDTH-1:0] z_i,
-    output logic [DATA_WIDTH-1:0] y_o
+    input  logic signed  [DATA_WIDTH-1:0] z_i,
+    output logic         [DATA_WIDTH-1:0] y_o
 );
 
     localparam MAX_INT = 3; // 2^3 = 8, abs max range

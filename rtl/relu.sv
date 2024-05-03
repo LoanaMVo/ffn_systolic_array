@@ -9,6 +9,6 @@ module relu #(
     output logic signed [DATA_WIDTH-1:0] y_o
 );
 
-    y_o = (| z_i[DATA_WIDTH-1]) ? 'd0 : z_i; // check MSB for negative
+    assign y_o = (| z_i[DATA_WIDTH-1]) ? 'd0 : z_i; // check MSB for negative
 
 endmodule //relu
